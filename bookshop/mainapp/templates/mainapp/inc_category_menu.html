@@ -1,0 +1,8 @@
+
+{% block category-menu %}
+<ul ​class​="​links​-​menu​">
+        {% for link in content.links_menu %}
+            <li><a href="#"> {{ link.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

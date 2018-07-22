@@ -1,0 +1,66 @@
+<!doctype html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+
+    <title>{% block title %}
+            {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+{% block preheader %}
+    <header>
+        <div class="container">
+
+            <div class="row my-3">
+                <div class="col-md-2 d-flex flex-column justify-content-start">
+                    <div class="left-corner-dots"></div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-3 text-center"><a href="/contacts/" class="btn btn-link">Контакты</a></div>
+                        <div class="col-md-3"><a href="" class="btn btn-link">+7(812)999-99-99</a></div>
+                        <div class="col-md-3"><a href="" class="btn btn-link">Мои покупки</a></div>
+                        <div class="col-md-3 text-right"><a href="2" class="btn-primary btn">Войти</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+
+<main role="main">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer class="text-muted">
+    <div class="container d-flex flex-row justify-content-space-between"> 
+        <ul>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="#">Доставка</a></li>
+            <li><a href="#">Возврат товара</a></li>
+        </ul>
+        <div>+78129999999</div>
+    </div>
+</footer>
+</body>
+</html>
