@@ -1,42 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <link rel="icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+{% extends "mainapp/base.html" %}
 
-    <title>Album example for Bootstrap</title>
+{% load staticfiles %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+{% block title %}
+{{ content.0.name }} - Социофобия на виражах
+{% endblock %}
 
-    <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-
-<header>
-    <div class="container">
-
-        <div class="row my-3">
-            <div class="col-md-2 d-flex flex-column justify-content-start">
-                <div class="left-corner-dots"></div>
-            </div>
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-3 text-center"><a href="" class="btn btn-link">Контакты</a></div>
-                    <div class="col-md-3"><a href="" class="btn btn-link">+7(812)999-99-99</a></div>
-                    <div class="col-md-3"><a href="" class="btn btn-link">Мои покупки</a></div>
-                    <div class="col-md-3 text-right"><a href="2" class="btn-primary btn">Войти</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
+{% block header %}
 <header class="container">
     <div class="container-fluid h100">
         <div class="row h100">
@@ -44,17 +14,10 @@
 
             </div>
             <div class="col-md-11">
-                <div class="logo-link"><a href="index.html"><img src="../static/img/blue-logo.png"></a></div>
+                <div class="logo-link"><a href="../"><img src="../static/img/blue-logo.png"></a></div>
                 <div class="navbar">
                     <div class="navbar-links-search">
-                        <div><ul>
-                            <li><a href="#">Философия</a>    </li>
-                            <li><a href="#">Экономика</a>    </li>
-                            <li><a href="#">Антропология</a>    </li>
-                            <li><a href="#">История</a>    </li>
-                            <li><a href="#">Учебные пособия</a>    </li>
-                            <li><a href="#">Детективы</a>    </li>
-                        </ul></div>
+                        <div>{% include 'mainapp/inc_category_menu.html'%}</div>
                         <div>
                             <form>
                             <div class="form-row align-items-center">
@@ -70,24 +33,24 @@
                         </form>
                         </div>
                     </div>
-                    <h1> Калибан и ведьма.</h1>
-                    <div class="product-author-name">Сильвия Федеричи</div>
+                    <h1> {{content.0.name}}</h1>
+                    <div class="product-author-name">{{content.0.author}}</div>
                 </div>
             </div>
         </div>
     </div>
 </header>
+{% endblock %}
 
-<main role="main">
 
-
+{% block content %}
     <div class="album py-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-10 d-flex justify-content-space-between">
                     <div class="col-md-4">
-                        <div class="product-photo"><img src="../static/content/caliban.jpg" alt="Caliban and the Witch">
+                        <div class="product-photo"><img src={{content.0.image.url}} alt={{content.0.name}}>
                         </div>
                     </div>
                     <div class="row">
@@ -96,11 +59,11 @@
                                 <table>
                                     <tr>
                                         <td>Кол-во страниц:</td>
-                                        <td>288</td>
+                                        <td>{{content.0.page_amount}}</td>
                                     </tr>
                                     <tr>
                                         <td>Издательство:</td>
-                                        <td>Autonomedia</td>
+                                        <td>{{content.0.publisher}}</td>
                                     </tr>
                                     <tr>
                                         <td>Год издания:</td>
@@ -108,22 +71,11 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div><button class="yellow-buy-btn" type="submit">1150 Р</button></div>
+                            <div><button class="yellow-buy-btn" type="submit">{{content.0.price}}</button></div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                                <p>Caliban and the Witch is a history of the body in the transition to capitalism.
-                                    Moving from the peasant revolts of the late Middle Ages to the witch-hunts and
-                                    the rise of mechanical philosophy, Federici investigates the capitalist
-                                    rationalization of social reproduction. She shows how the battle against the rebel
-                                    body and mind are essential conditions for the development of labor power and
-                                    self-ownership, two central principles of modern social organization.
-                                    "In the neoliberal era of postmodernism, the proletariat is whited-out from the
-                                    pages of history. Federici recovers its historical substance by telling its story
-                                    starting at the beginning, with the throes of its birth. This is a book of
-                                    remembrance, of a trauma burned into the body of women, which left a scar on
-                                    humanity's memory as deep and painful as those caused by famine, slaughter,
-                                    and enslavement." —Peter Linebaugh</p>
+                                <p>{{content.0.description}} </p>
                             </div>
                             <div class="col-md-4"></div>
                         </div>
@@ -137,72 +89,27 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h3>С этой книгой покупают:</h3>
+
                         </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="../static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
+                        {% for book in content.1 %}
+                            <div class="col-md-3">
+                                <div class="card mb-4 box-shadow text-center bordered">
+                                    <img src={{book.image.url}} alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="book-name">{{book.name}}</p>
+                                        <p class="author-name">{{book.author}}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="price-catalog">{{book.price}}</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="../static/content/caliban.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Калибан и ведьма</p>
-                                    <p class="author-name">Сильфия Федеричи</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">1150 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="../static/content/Zapiski_u_izgolovya.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Записки у изголовья</p>
-                                    <p class="author-name">Сэй Сенагон</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">660 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="../static/content/glass-dome.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Избранное</p>
-                                    <p class="author-name">Сильвия Платт</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">490 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-</main>
+{% endblock %}
 
-<footer class="text-muted">
-    <div class="container d-flex flex-row justify-content-space-between"> 
-        <ul>
-            <li><a href="contacts.html">Контакты</a></li>
-            <li><a href="#">Доставка</a></li>
-            <li><a href="#">Возврат товара</a></li>
-        </ul>
-        <div>+78129999999</div>
-    </div>
-</footer>
-</body>
-</html>

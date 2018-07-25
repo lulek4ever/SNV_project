@@ -18,10 +18,12 @@ from django.urls import path
 from mainapp.views import index_view
 from mainapp.views import contacts_view
 from book.views import product_view
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view),
     path('book/', product_view, name='product'),
     path('contacts/', contacts_view)
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -74,54 +74,24 @@
                         <div class="col-md-12">
                             <h3>Бестселлеры</h3>
                         </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name"><a href="book/">Второй пол</a></p>
-                                    <p class="author-name"><a href="book/">Симона де Бовуар</a></p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
+
+                        {% for book in content.0 %}
+
+                            <div class="col-md-3">
+                                <div class="card mb-4 box-shadow text-center bordered">
+                                    <img src="{{book.image.url}}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="book-name"><a href="book/">{{book.name}}</a></p>
+                                        <p class="author-name"><a href="book/">{{book.author}}</a></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="price-catalog">{{book.price}}</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/caliban.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name"><a href="../../../book/">Калибан и ведьма</a></p>
-                                    <p class="author-name">Сильвия Федеричи</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">1150 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/Zapiski_u_izgolovya.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Записки у изголовья</p>
-                                    <p class="author-name">Сэй Сенагон</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">660 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/glass-dome.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Избранное</p>
-                                    <p class="author-name">Сильвия Платт</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">490 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        {% endfor %}
+
                     </div>
                 </div>
 
@@ -138,103 +108,24 @@
                             <h3>Новинки</h3>
                         </div>
 
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% for book in content.1 %}
 
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
+                            <div class="col-md-3">
+                                <div class="card mb-4 box-shadow text-center bordered">
+                                    <img src="{{book.image.url}}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p class="book-name"><a href="book/">{{book.name}}</a></p>
+                                        <p class="author-name"><a href="book/">{{book.author}}</a></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="price-catalog">{{book.price}}</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card mb-4 box-shadow text-center bordered">
-                                <img src="static/content/second-sex.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="book-name">Второй пол</p>
-                                    <p class="author-name">Симона де Бовуар</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="price-catalog">890 Р</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        {% endfor %}
+
+
                     </div>
                 </div>
 
