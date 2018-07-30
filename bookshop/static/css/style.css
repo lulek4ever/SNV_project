@@ -260,3 +260,21 @@ footer > div > div, footer li {
 .map {
     border: 8px solid black;
 }
+
+.registration {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+
+}
+
+.registration-container {
+    width: 400px;
+    height: 400 px;
+    background-color: white;
+    top: 200px;
+    left: 25%;
+
+}

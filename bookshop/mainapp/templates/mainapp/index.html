@@ -12,12 +12,19 @@
             <div class="row my-3">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-3 text-center"><a href="contacts/" class="btn btn-link">Контакты</a></div>
+                        <div class="col-md-2 text-center"><a href="contacts/" class="btn btn-link">Контакты</a></div>
                         <div class="col-md-3"><a href="" class="btn btn-link">+7(812)999-99-99</a></div>
                         <div class="col-md-3"><a href="" class="btn btn-link">Мои покупки</a></div>
-                        <div class="col-md-3 text-right"><a href="2" class="btn-primary btn">Войти</a></div>
+                        <div class="col-md-2"><a href="{% url 'auth:edit' %}" class="btn btn-link">{{ user.username }}</a></div>
+                        <div class="col-md-2 text-right">
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'auth:logout' %}" class="btn-primary btn">Выйти</a>
+                            {% else %}
+                                 <a href="{% url 'auth:login' %}" class="btn-primary btn">Войти</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,10 +86,10 @@
 
                             <div class="col-md-3">
                                 <div class="card mb-4 box-shadow text-center bordered">
-                                    <img src="{{book.image.url}}" alt="Card image cap">
+                                    <a href="{% url 'product:detail' book.id %}"><img src={{book.image.url}} alt="Card image cap"></a>
                                     <div class="card-body">
-                                        <p class="book-name"><a href="book/">{{book.name}}</a></p>
-                                        <p class="author-name"><a href="book/">{{book.author}}</a></p>
+                                        <p class="book-name"><a href="{% url 'product:detail' book.id %}">{{book.name}}</a></p>
+                                        <p class="author-name"><a href="{% url 'product:detail' book.id %}">{{book.author}}</a></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="price-catalog">{{book.price}}</small>
                                         </div>

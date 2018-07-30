@@ -17,13 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from mainapp.views import index_view
 from mainapp.views import contacts_view
-from book.views import product_view
+from mainapp.views import product_view
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url, include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_view),
-    path('book/', product_view, name='product'),
-    path('contacts/', contacts_view)
+    path('', index_view, name='index'),
+    # path('book/', product_view, name='product'),
+    path('', include('mainapp.urls')),
+    path('contacts/', contacts_view, name='contacts'),
+    url('auth/', include('authapp.urls', namespace='auth'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
