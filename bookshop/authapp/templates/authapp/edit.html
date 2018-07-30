@@ -1,0 +1,23 @@
+{% extends 'authapp/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+<p>Изменить учетную запись</p>
+{% endblock%}
+
+{% block content %}
+    <div class="container-fluid">
+        <form class="" action="{% url 'auth:edit' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ edit_form.as_p }}
+            <br>
+            <input class="btn-primary btn" type="submit" value="Сохранить">
+        </form>
+        <button class="btn btn-round last">
+            <a href="{% url 'index' %}" class=""> На главную</a>
+        </button>
+        <div class="userpic">
+            <img src="/media/{{ user.userpic }}">
+        </div>
+    </div>
+{% endblock %}
