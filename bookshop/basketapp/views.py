@@ -17,6 +17,10 @@ def add_to_basket(request, pk):
         old_basket_item[0].quantity += 1
         old_basket_item[0].save()
 
+    else:
+        new_basket_item = Basket(user=request.user, book=book)
+        new_basket_item.quantity += 1
+        new_basket_item.save()
+
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-# Create your views here.
