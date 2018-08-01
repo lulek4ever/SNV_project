@@ -29,5 +29,6 @@ urlpatterns = [
     # path('book/', product_view, name='product'),
     path('', include('mainapp.urls')),
     path('contacts/', contacts_view, name='contacts'),
-    url('auth/', include('authapp.urls', namespace='auth'))
+    url('auth/', include('authapp.urls', namespace='auth')),
+    url('orders/', include('basketapp.urls', namespace='orders')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
