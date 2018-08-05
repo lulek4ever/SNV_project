@@ -12,5 +12,29 @@ class Basket(models.Model):
     def __str__(self):
         return str(self.user)
 
+    def _get_product_price(self):
+        return self.book.price * self.quantity
+
+    product_price = property(_get_product_price)
+
+    def _get_total_quantity(self):
+        _items = Basket.objects.filter(user=self.user)
+        _totalquantity = sum(list(map(lambda x: x.quantity, _items)))
+
+        return _totalquantity
+
+    total_quantity = property(_get_total_quantity)
+
+    def _get_total_price(self):
+        _items = Basket.objects.filter(user=self.user)
+        _totalprice = sum(list(map(lambda x: x.product_price, _items)))
+        return _totalprice
+
+    total_price = property(_get_total_price)
+
+
+
+
+
 
 # Create your models here.
