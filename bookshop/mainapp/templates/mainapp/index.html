@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-2 text-center"><a href="contacts/" class="btn btn-link">Контакты</a></div>
                         <div class="col-md-3"><a href="" class="btn btn-link">+7(812)999-99-99</a></div>
-                        <div class="col-md-3"><a href="" class="btn btn-link">Мои покупки</a></div>
+                        <div class="col-md-3"><a href="{% url 'orders:basket_view' %}" class="btn btn-link"> Мои покупки ( {{ content.3.0.total_quantity}} )</a></div>
                         <div class="col-md-2"><a href="{% url 'auth:edit' %}" class="btn btn-link">{{ user.username }}</a></div>
                         <div class="col-md-2 text-right">
                             {% if user.is_authenticated %}
@@ -82,22 +82,9 @@
                             <h3>Бестселлеры</h3>
                         </div>
 
-                        {% for book in content.0 %}
+                        <div class="row" id="bestsellers">
 
-                            <div class="col-md-3">
-                                <div class="card mb-4 box-shadow text-center bordered">
-                                    <a href="{% url 'product:detail' book.id %}"><img src={{book.image.url}} alt="Card image cap"></a>
-                                    <div class="card-body">
-                                        <p class="book-name"><a href="{% url 'product:detail' book.id %}">{{book.name}}</a></p>
-                                        <p class="author-name"><a href="{% url 'product:detail' book.id %}">{{book.author}}</a></p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="price-catalog">{{book.price}}</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        {% endfor %}
+                        </div>
 
                     </div>
                 </div>
@@ -115,22 +102,9 @@
                             <h3>Новинки</h3>
                         </div>
 
-                        {% for book in content.1 %}
+                        <div class="row" id="new-books">
 
-                            <div class="col-md-3">
-                                <div class="card mb-4 box-shadow text-center bordered">
-                                    <img src="{{book.image.url}}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <p class="book-name"><a href="book/">{{book.name}}</a></p>
-                                        <p class="author-name"><a href="book/">{{book.author}}</a></p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="price-catalog">{{book.price}}</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        {% endfor %}
+                        </div>
 
 
                     </div>
@@ -140,5 +114,18 @@
             </div>
         </div>
     </div>
+
+    <div class="products">
+        <div id="products-list"></div>
+    </div>
+
+    {% block page_js%}
+        <script type="text/javascript" src="{% static 'mainapp/index.js'%}"></script>
+
+    <script>
+        axios.get('http://127.0.0.1:8000/api/')
+            .then(renderData)
+    </script>
+    {% endblock %}
 {% endblock %}
 

@@ -272,9 +272,13 @@ footer > div > div, footer li {
 
 .registration-container {
     width: 400px;
-    height: 400 px;
     background-color: white;
-    top: 200px;
-    left: 25%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
 
+.basket-list {
+    width: 70%;
+    margin: 0 auto;
 }
