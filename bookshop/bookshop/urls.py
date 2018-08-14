@@ -21,6 +21,11 @@ from mainapp.views import product_view
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
+from rest_framework.routers import DefaultRouter
+from mainapp.endpoints import BookModelSet
+
+router = DefaultRouter()
+router.register('books', BookModelSet)
 
 
 urlpatterns = [
@@ -31,4 +36,5 @@ urlpatterns = [
     path('contacts/', contacts_view, name='contacts'),
     url('auth/', include('authapp.urls', namespace='auth')),
     url('orders/', include('basketapp.urls', namespace='orders')),
+    path('api/', include(router.urls))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

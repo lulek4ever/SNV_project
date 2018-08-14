@@ -1,7 +1,7 @@
 var bookList = ({ id, name, author, image, price}) => (
     `<div class="col-md-3">
         <div class="card mb-4 box-shadow text-center bordered">
-            <img src="/media/${ image }" alt="Card image cap">
+            <img src="${ image }" alt="${ name }">
             <div class="card-body">
                 <p class="book-name"><a href="${ id }/">${ name }</a></p>
                 <p class="author-name"><a href="book/">${ author }</a></p>
@@ -14,7 +14,8 @@ var bookList = ({ id, name, author, image, price}) => (
 )
 
 var renderData = res => {
-    book_html = res.data.results.map(bookList).join('')
+
+    book_html = res.data.map(bookList).join('')
 
     bestsellers_container = document.getElementById('bestsellers')
     bestsellers_container.innerHTML = book_html
